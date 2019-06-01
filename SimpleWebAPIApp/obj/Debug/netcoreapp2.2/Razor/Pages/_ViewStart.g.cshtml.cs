@@ -24,12 +24,12 @@ using SimpleWebAPIApp.Areas.Identity;
 #line default
 #line hidden
 #line 3 "C:\Users\steve\source\repos\SimpleWebAPIApp\SimpleWebAPIApp\Pages\_ViewImports.cshtml"
-using SimpleWebAPIApp.Areas.Identity.Data;
+using SimpleWebAPIApp.Areas.Identity.Models;
 
 #line default
 #line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"80ba95d1507ed317105e3365f81a53ec94a22cec", @"/Pages/_ViewStart.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c49c10ca2e17f852351be31bad7941fb5d05d3c9", @"/Pages/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"862de843d5dcd25f07ec651e8d6f71dc06842e68", @"/Pages/_ViewImports.cshtml")]
     public class Pages__ViewStart : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

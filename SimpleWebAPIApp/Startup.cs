@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace SimpleWebAPIApp
 {
@@ -26,6 +27,11 @@ namespace SimpleWebAPIApp
         {
           options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
         });
+      services.AddSwaggerGen(c =>
+      {
+        c.SwaggerDoc("v1", new Info {Title = "Sample Asp.net core api", Version = "v1"});
+      });
+
       services.AddDbContext<DefaultDbContext>(options =>
         options.UseNpgsql(Configuration.GetConnectionString("DefaultDb")));
       services.AddAuthentication();
@@ -50,6 +56,8 @@ namespace SimpleWebAPIApp
       app.UseStaticFiles();
       app.UseAuthentication();
       app.UseMvc();
+      app.UseSwagger();
+      app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "Simple Asp.net core api"); });
     }
   }
 }

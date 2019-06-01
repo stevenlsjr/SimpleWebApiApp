@@ -130,7 +130,7 @@ namespace SimpleWebAPIApp.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("SimpleWebAPIApp.Areas.Identity.Data.AuthUser", b =>
+            modelBuilder.Entity("SimpleWebAPIApp.Areas.Identity.Models.ApiAuthUserResource", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
@@ -180,29 +180,28 @@ namespace SimpleWebAPIApp.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("SimpleWebAPIApp.Models.AppUser", b =>
+            modelBuilder.Entity("SimpleWebAPIApp.Models.BlogPost", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Email");
+                    b.Property<string>("AuthorId");
 
-                    b.Property<string>("FirstName");
+                    b.Property<byte[]>("Content")
+                        .HasColumnType("bytea");
 
-                    b.Property<string>("LastName");
+                    b.Property<DateTime>("Published");
 
-                    b.Property<string>("UserName")
-                        .IsRequired();
+                    b.Property<string>("Subtitle");
+
+                    b.Property<string>("Title");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserName")
+                    b.HasIndex("AuthorId")
                         .IsUnique();
 
-                    b.HasIndex("FirstName", "LastName")
-                        .IsUnique();
-
-                    b.ToTable("AppUsers");
+                    b.ToTable("BlogPost");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -215,7 +214,7 @@ namespace SimpleWebAPIApp.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("SimpleWebAPIApp.Areas.Identity.Data.AuthUser")
+                    b.HasOne("SimpleWebAPIApp.Areas.Identity.Models.ApiAuthUserResource")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -223,7 +222,7 @@ namespace SimpleWebAPIApp.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("SimpleWebAPIApp.Areas.Identity.Data.AuthUser")
+                    b.HasOne("SimpleWebAPIApp.Areas.Identity.Models.ApiAuthUserResource")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -236,7 +235,7 @@ namespace SimpleWebAPIApp.Migrations
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("SimpleWebAPIApp.Areas.Identity.Data.AuthUser")
+                    b.HasOne("SimpleWebAPIApp.Areas.Identity.Models.ApiAuthUserResource")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -244,10 +243,17 @@ namespace SimpleWebAPIApp.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("SimpleWebAPIApp.Areas.Identity.Data.AuthUser")
+                    b.HasOne("SimpleWebAPIApp.Areas.Identity.Models.ApiAuthUserResource")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("SimpleWebAPIApp.Models.BlogPost", b =>
+                {
+                    b.HasOne("SimpleWebAPIApp.Areas.Identity.Models.ApiAuthUserResource", "Author")
+                        .WithOne("AuthoredPosts")
+                        .HasForeignKey("SimpleWebAPIApp.Models.BlogPost", "AuthorId");
                 });
 #pragma warning restore 612, 618
         }

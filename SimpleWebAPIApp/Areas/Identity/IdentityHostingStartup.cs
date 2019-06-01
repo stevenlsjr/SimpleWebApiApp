@@ -5,8 +5,8 @@ using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using SimpleWebAPIApp;
-using SimpleWebAPIApp.Areas.Identity.Data;
+using SimpleWebAPIApp.Areas.Identity.Models;
+using SimpleWebAPIApp.Models;
 
 [assembly: HostingStartup(typeof(SimpleWebAPIApp.Areas.Identity.IdentityHostingStartup))]
 namespace SimpleWebAPIApp.Areas.Identity
@@ -16,11 +16,8 @@ namespace SimpleWebAPIApp.Areas.Identity
         public void Configure(IWebHostBuilder builder)
         {
             builder.ConfigureServices((context, services) => {
-                services.AddDbContext<DefaultDbContext>(options =>
-                    options.UseNpgsql(
-                        context.Configuration.GetConnectionString("DefaultDb")));
-
-                services.AddDefaultIdentity<AuthUser>()
+              
+                services.AddDefaultIdentity<ApiAuthUserResource>()
                     .AddEntityFrameworkStores<DefaultDbContext>();
             });
         }

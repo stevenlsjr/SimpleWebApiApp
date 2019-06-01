@@ -1,7 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Identity
-@using SimpleWebAPIApp.Areas.Identity.Data
-@inject SignInManager<AuthUser> SignInManager
-@inject UserManager<AuthUser> UserManager
+@using SimpleWebAPIApp.Areas.Identity.Models
+@inject SignInManager<ApiAuthUserResource> SignInManager
+@inject UserManager<ApiAuthUserResource> UserManager
 
 <ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))
