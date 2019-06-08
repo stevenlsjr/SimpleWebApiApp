@@ -14,10 +14,10 @@ namespace SimpleWebAPIApp.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class LogoutModel : PageModel
     {
-        private readonly SignInManager<ApiAuthUserResource> _signInManager;
+        private readonly SignInManager<ApiAuthUser> _signInManager;
         private readonly ILogger<LogoutModel> _logger;
 
-        public LogoutModel(SignInManager<ApiAuthUserResource> signInManager, ILogger<LogoutModel> logger)
+        public LogoutModel(SignInManager<ApiAuthUser> signInManager, ILogger<LogoutModel> logger)
         {
             _signInManager = signInManager;
             _logger = logger;

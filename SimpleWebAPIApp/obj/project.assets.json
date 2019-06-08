@@ -4821,6 +4821,22 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
+      },
+      "Westwind.AspnetCore.LiveReload/0.1.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Hosting": "2.1.0",
+          "Microsoft.AspNetCore.Http.Abstractions": "2.1.0",
+          "Microsoft.AspNetCore.WebSockets": "2.1.0",
+          "Microsoft.Extensions.Configuration": "2.1.0",
+          "Microsoft.Extensions.DependencyInjection": "2.1.0"
+        },
+        "compile": {
+          "lib/netcoreapp2.1/Westwind.AspnetCore.LiveReload.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.1/Westwind.AspnetCore.LiveReload.dll": {}
+        }
       }
     }
   },
@@ -13199,6 +13215,18 @@
         "system.xml.xpath.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xpath.xdocument.nuspec"
       ]
+    },
+    "Westwind.AspnetCore.LiveReload/0.1.5": {
+      "sha512": "rspJ3wUX4WiRyDP6nbhz+UVECxx6TO2XtCKNMfp6IOEbDl9wUcMGJgtWZ10sqQM2LI0E7VbHlJ4CdKe84lcjBg==",
+      "type": "package",
+      "path": "westwind.aspnetcore.livereload/0.1.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netcoreapp2.1/Westwind.AspnetCore.LiveReload.dll",
+        "westwind.aspnetcore.livereload.0.1.5.nupkg.sha512",
+        "westwind.aspnetcore.livereload.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -13211,7 +13239,8 @@
       "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.4.10",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.2.3",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 2.2.4",
-      "Swashbuckle.AspNetCore >= 4.0.1"
+      "Swashbuckle.AspNetCore >= 4.0.1",
+      "WestWind.AspnetCore.LiveReload >= 0.1.5"
     ]
   },
   "packageFolders": {
@@ -13295,6 +13324,10 @@
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[4.0.1, )"
+          },
+          "WestWind.AspnetCore.LiveReload": {
+            "target": "Package",
+            "version": "[0.1.5, )"
           }
         },
         "imports": [

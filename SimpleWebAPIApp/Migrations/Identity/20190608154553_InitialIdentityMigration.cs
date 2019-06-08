@@ -2,9 +2,9 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace SimpleWebAPIApp.Migrations
+namespace SimpleWebAPIApp.Migrations.Identity
 {
-    public partial class SetupIdentity : Migration
+    public partial class InitialIdentityMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

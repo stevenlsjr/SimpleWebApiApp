@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
+using SimpleWebAPIApp.Areas.Identity;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace SimpleWebAPIApp
@@ -34,13 +35,19 @@ namespace SimpleWebAPIApp
 
       services.AddDbContext<DefaultDbContext>(options =>
         options.UseNpgsql(Configuration.GetConnectionString("DefaultDb")));
+
+      services.AddDbContext<IdentityContext>(options =>
+      {
+        options.UseNpgsql(Configuration.GetConnectionString("IdentityDb"));
+      });
       services.AddAuthentication();
       services.AddAuthentication().AddGitHub(githubOptions =>
       {
         githubOptions.ClientId = Configuration["Github:ClientId"];
         githubOptions.ClientSecret = Configuration["Github:ClientSecret"];
-      });
-      
+      }).AddJwtBearer();
+
+
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

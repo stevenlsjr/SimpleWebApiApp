@@ -18,6 +18,6 @@ namespace SimpleWebAPIApp.Models
     public DateTime Published { get; set; }
     public string AuthorId { get; set; }
     [ForeignKey("AuthorId")]
-    public ApiAuthUserResource Author { get; set; }
+    public BlogUser Author { get; set; }
   }
 }

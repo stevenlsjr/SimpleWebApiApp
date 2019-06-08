@@ -8,15 +8,9 @@ using SimpleWebAPIApp.Models;
 
 namespace SimpleWebAPIApp.Areas.Identity.Models
 {
-    // Add profile data for application users by adding properties to the ApiAuthUserResource class
-    public class ApiAuthUserResource : IdentityUser
+    // Add profile data for application users by adding properties to the ApiAuthUser class
+    public class ApiAuthUser : IdentityUser
     {
-
-      public BlogPost AuthoredPosts { get; set; }
-      public string Username { get; set; }
-
-     
-
 
     }
 

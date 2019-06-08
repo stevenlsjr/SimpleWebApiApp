@@ -2,18 +2,16 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using SimpleWebAPIApp;
+using SimpleWebAPIApp.Areas.Identity;
 
-namespace SimpleWebAPIApp.Migrations
+namespace SimpleWebAPIApp.Migrations.Identity
 {
-    [DbContext(typeof(DefaultDbContext))]
-    [Migration("20190601212239_SetupIdentity")]
-    partial class SetupIdentity
+    [DbContext(typeof(IdentityContext))]
+    partial class IdentityContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -132,7 +130,7 @@ namespace SimpleWebAPIApp.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("SimpleWebAPIApp.Areas.Identity.Models.ApiAuthUserResource", b =>
+            modelBuilder.Entity("SimpleWebAPIApp.Areas.Identity.Models.ApiAuthUser", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
@@ -192,7 +190,7 @@ namespace SimpleWebAPIApp.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("SimpleWebAPIApp.Areas.Identity.Models.ApiAuthUserResource")
+                    b.HasOne("SimpleWebAPIApp.Areas.Identity.Models.ApiAuthUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -200,7 +198,7 @@ namespace SimpleWebAPIApp.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("SimpleWebAPIApp.Areas.Identity.Models.ApiAuthUserResource")
+                    b.HasOne("SimpleWebAPIApp.Areas.Identity.Models.ApiAuthUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -213,7 +211,7 @@ namespace SimpleWebAPIApp.Migrations
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("SimpleWebAPIApp.Areas.Identity.Models.ApiAuthUserResource")
+                    b.HasOne("SimpleWebAPIApp.Areas.Identity.Models.ApiAuthUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -221,7 +219,7 @@ namespace SimpleWebAPIApp.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("SimpleWebAPIApp.Areas.Identity.Models.ApiAuthUserResource")
+                    b.HasOne("SimpleWebAPIApp.Areas.Identity.Models.ApiAuthUser")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);

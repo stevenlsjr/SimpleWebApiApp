@@ -16,10 +16,10 @@ namespace SimpleWebAPIApp.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class LoginModel : PageModel
     {
-        private readonly SignInManager<ApiAuthUserResource> _signInManager;
+        private readonly SignInManager<ApiAuthUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
 
-        public LoginModel(SignInManager<ApiAuthUserResource> signInManager, ILogger<LoginModel> logger)
+        public LoginModel(SignInManager<ApiAuthUser> signInManager, ILogger<LoginModel> logger)
         {
             _signInManager = signInManager;
             _logger = logger;

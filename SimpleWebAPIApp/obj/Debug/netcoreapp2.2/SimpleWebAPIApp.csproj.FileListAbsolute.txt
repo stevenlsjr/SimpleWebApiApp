@@ -5,16 +5,11 @@ C:\Users\steve\source\repos\SimpleWebAPIApp\SimpleWebAPIApp\bin\Debug\netcoreapp
 C:\Users\steve\source\repos\SimpleWebAPIApp\SimpleWebAPIApp\bin\Debug\netcoreapp2.2\SimpleWebAPIApp.pdb
 C:\Users\steve\source\repos\SimpleWebAPIApp\SimpleWebAPIApp\bin\Debug\netcoreapp2.2\SimpleWebAPIApp.Views.dll
 C:\Users\steve\source\repos\SimpleWebAPIApp\SimpleWebAPIApp\bin\Debug\netcoreapp2.2\SimpleWebAPIApp.Views.pdb
-C:\Users\steve\source\repos\SimpleWebAPIApp\SimpleWebAPIApp\obj\Debug\netcoreapp2.2\SimpleWebAPIApp.csprojAssemblyReference.cache
 C:\Users\steve\source\repos\SimpleWebAPIApp\SimpleWebAPIApp\obj\Debug\netcoreapp2.2\SimpleWebAPIApp.csproj.CoreCompileInputs.cache
 C:\Users\steve\source\repos\SimpleWebAPIApp\SimpleWebAPIApp\obj\Debug\netcoreapp2.2\SimpleWebAPIApp.RazorAssemblyInfo.cache
 C:\Users\steve\source\repos\SimpleWebAPIApp\SimpleWebAPIApp\obj\Debug\netcoreapp2.2\SimpleWebAPIApp.RazorAssemblyInfo.cs
 C:\Users\steve\source\repos\SimpleWebAPIApp\SimpleWebAPIApp\obj\Debug\netcoreapp2.2\SimpleWebAPIApp.AssemblyInfoInputs.cache
 C:\Users\steve\source\repos\SimpleWebAPIApp\SimpleWebAPIApp\obj\Debug\netcoreapp2.2\SimpleWebAPIApp.AssemblyInfo.cs
-C:\Users\steve\source\repos\SimpleWebAPIApp\SimpleWebAPIApp\obj\Debug\netcoreapp2.2\SimpleWebAPIApp.RazorTargetAssemblyInfo.cache
-C:\Users\steve\source\repos\SimpleWebAPIApp\SimpleWebAPIApp\obj\Debug\netcoreapp2.2\SimpleWebAPIApp.dll
-C:\Users\steve\source\repos\SimpleWebAPIApp\SimpleWebAPIApp\obj\Debug\netcoreapp2.2\SimpleWebAPIApp.pdb
-C:\Users\steve\source\repos\SimpleWebAPIApp\SimpleWebAPIApp\obj\Debug\netcoreapp2.2\SimpleWebAPIApp.csproj.CopyComplete
 C:\Users\steve\source\repos\SimpleWebAPIApp\SimpleWebAPIApp\obj\Debug\netcoreapp2.2\SimpleWebAPIApp.TagHelpers.input.cache
 C:\Users\steve\source\repos\SimpleWebAPIApp\SimpleWebAPIApp\obj\Debug\netcoreapp2.2\SimpleWebAPIApp.TagHelpers.output.cache
 C:\Users\steve\source\repos\SimpleWebAPIApp\SimpleWebAPIApp\obj\Debug\netcoreapp2.2\SimpleWebAPIApp.RazorCoreGenerate.cache
@@ -29,5 +24,10 @@ C:\Users\steve\source\repos\SimpleWebAPIApp\SimpleWebAPIApp\obj\Debug\netcoreapp
 C:\Users\steve\source\repos\SimpleWebAPIApp\SimpleWebAPIApp\obj\Debug\netcoreapp2.2\Razor\Pages\Shared\_ValidationScriptsPartial.g.cshtml.cs
 C:\Users\steve\source\repos\SimpleWebAPIApp\SimpleWebAPIApp\obj\Debug\netcoreapp2.2\Razor\Pages\_ViewImports.g.cshtml.cs
 C:\Users\steve\source\repos\SimpleWebAPIApp\SimpleWebAPIApp\obj\Debug\netcoreapp2.2\Razor\Pages\_ViewStart.g.cshtml.cs
+C:\Users\steve\source\repos\SimpleWebAPIApp\SimpleWebAPIApp\obj\Debug\netcoreapp2.2\SimpleWebAPIApp.RazorTargetAssemblyInfo.cache
 C:\Users\steve\source\repos\SimpleWebAPIApp\SimpleWebAPIApp\obj\Debug\netcoreapp2.2\SimpleWebAPIApp.RazorTargetAssemblyInfo.cs
 C:\Users\steve\source\repos\SimpleWebAPIApp\SimpleWebAPIApp\obj\Debug\netcoreapp2.2\SimpleWebAPIApp.Views.pdb
+C:\Users\steve\source\repos\SimpleWebAPIApp\SimpleWebAPIApp\obj\Debug\netcoreapp2.2\SimpleWebAPIApp.dll
+C:\Users\steve\source\repos\SimpleWebAPIApp\SimpleWebAPIApp\obj\Debug\netcoreapp2.2\SimpleWebAPIApp.pdb
+C:\Users\steve\source\repos\SimpleWebAPIApp\SimpleWebAPIApp\obj\Debug\netcoreapp2.2\SimpleWebAPIApp.csproj.CopyComplete
+C:\Users\steve\source\repos\SimpleWebAPIApp\SimpleWebAPIApp\obj\Debug\netcoreapp2.2\SimpleWebAPIApp.csprojAssemblyReference.cache

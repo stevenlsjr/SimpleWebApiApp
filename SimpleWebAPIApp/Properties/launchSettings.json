@@ -33,6 +33,15 @@
       "httpPort": 52703,
       "useSSL": true,
       "sslPort": 44313
+    },
+    "Watch Run": {
+      "commandName": "Project",
+      "executablePath": "dotnet.exe",
+      "commandLineArgs": "watch run",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
     }
+
   }
 }

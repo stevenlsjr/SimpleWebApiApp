@@ -7,18 +7,18 @@ using SimpleWebAPIApp.Areas.Identity.Models;
 
 namespace SimpleWebAPIApp
 {
-  public class DefaultDbContext : IdentityDbContext<ApiAuthUserResource>
+  public class DefaultDbContext : DbContext
   {
 
     DbSet<BlogPost> Posts;
 
-    public DefaultDbContext(DbContextOptions options) : base(options)
+    public DefaultDbContext(DbContextOptions<DefaultDbContext> options) : base(options)
     {
       ChangeTracker.LazyLoadingEnabled = false;
     }
 
     public DbSet<SimpleWebAPIApp.Models.BlogPost> BlogPost { get; set; }
-
+    
   }
 
 

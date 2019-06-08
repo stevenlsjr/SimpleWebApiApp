@@ -1,25 +1,30 @@
-﻿using System;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using SimpleWebAPIApp.Areas.Identity;
 using SimpleWebAPIApp.Areas.Identity.Models;
-using SimpleWebAPIApp.Models;
+using SimpleWebAPIApp.Areas.Identity.Services;
 
-[assembly: HostingStartup(typeof(SimpleWebAPIApp.Areas.Identity.IdentityHostingStartup))]
+[assembly: HostingStartup(typeof(IdentityHostingStartup))]
+
 namespace SimpleWebAPIApp.Areas.Identity
 {
-    public class IdentityHostingStartup : IHostingStartup
+  public class IdentityHostingStartup : IHostingStartup
+  {
+    public void Configure(IWebHostBuilder builder)
     {
-        public void Configure(IWebHostBuilder builder)
-        {
-            builder.ConfigureServices((context, services) => {
-              
-                services.AddDefaultIdentity<ApiAuthUserResource>()
-                    .AddEntityFrameworkStores<DefaultDbContext>();
-            });
-        }
+      builder.ConfigureServices((context, services) =>
+      {
+        services.AddDefaultIdentity<ApiAuthUser>(o =>
+          {
+            o.Password.RequireDigit = false;
+            o.Password.RequireLowercase = false;
+            o.Password.RequireUppercase = false;
+            o.Password.RequireNonAlphanumeric = false;
+            
+          })
+          .AddEntityFrameworkStores<IdentityContext>();
+        services.AddSingleton<AuthUserService>();
+      });
     }
+  }
 }

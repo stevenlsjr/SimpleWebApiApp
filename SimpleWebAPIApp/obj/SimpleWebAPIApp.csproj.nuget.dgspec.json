@@ -81,6 +81,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[4.0.1, )"
+            },
+            "WestWind.AspnetCore.LiveReload": {
+              "target": "Package",
+              "version": "[0.1.5, )"
             }
           },
           "imports": [
