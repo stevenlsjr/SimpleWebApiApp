@@ -6,7 +6,7 @@ using SimpleWebAPIApp.Areas.Identity.Models;
 
 namespace SimpleWebAPIApp.Areas.Identity.Services
 {
-  public class AuthUserService
+  public class AuthUserService: IAuthenticateService
   {
     private DefaultDbContext ctx { get; set; }
     public AuthUserService(DefaultDbContext ctx)
@@ -15,7 +15,9 @@ namespace SimpleWebAPIApp.Areas.Identity.Services
     }
 
 
-
-
+    public bool IsAuthenticated(TokenRequest request, out string token)
+    {
+      throw new NotImplementedException();
+    }
   }
 }

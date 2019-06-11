@@ -10,8 +10,8 @@ using SimpleWebAPIApp;
 namespace SimpleWebAPIApp.Migrations
 {
     [DbContext(typeof(DefaultDbContext))]
-    [Migration("20190608154534_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20190608214818_FixedAuthorIdType")]
+    partial class FixedAuthorIdType
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,50 +21,12 @@ namespace SimpleWebAPIApp.Migrations
                 .HasAnnotation("ProductVersion", "2.2.4-servicing-10062")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
-            modelBuilder.Entity("SimpleWebAPIApp.Areas.Identity.Models.ApiAuthUser", b =>
-                {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("AccessFailedCount");
-
-                    b.Property<string>("ConcurrencyStamp");
-
-                    b.Property<string>("Email");
-
-                    b.Property<bool>("EmailConfirmed");
-
-                    b.Property<bool>("LockoutEnabled");
-
-                    b.Property<DateTimeOffset?>("LockoutEnd");
-
-                    b.Property<string>("NormalizedEmail");
-
-                    b.Property<string>("NormalizedUserName");
-
-                    b.Property<string>("PasswordHash");
-
-                    b.Property<string>("PhoneNumber");
-
-                    b.Property<bool>("PhoneNumberConfirmed");
-
-                    b.Property<string>("SecurityStamp");
-
-                    b.Property<bool>("TwoFactorEnabled");
-
-                    b.Property<string>("UserName");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ApiAuthUser");
-                });
-
             modelBuilder.Entity("SimpleWebAPIApp.Models.BlogPost", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("AuthorId");
+                    b.Property<int>("AuthorId");
 
                     b.Property<byte[]>("Content")
                         .HasColumnType("bytea");
@@ -82,11 +44,24 @@ namespace SimpleWebAPIApp.Migrations
                     b.ToTable("BlogPost");
                 });
 
+            modelBuilder.Entity("SimpleWebAPIApp.Models.BlogUser", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("AuthUserPk");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("BlogUser");
+                });
+
             modelBuilder.Entity("SimpleWebAPIApp.Models.BlogPost", b =>
                 {
-                    b.HasOne("SimpleWebAPIApp.Areas.Identity.Models.ApiAuthUser", "Author")
+                    b.HasOne("SimpleWebAPIApp.Models.BlogUser", "Author")
                         .WithMany()
-                        .HasForeignKey("AuthorId");
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

@@ -9,17 +9,20 @@ namespace SimpleWebAPIApp
 {
   public class DefaultDbContext : DbContext
   {
-
-    DbSet<BlogPost> Posts;
-
     public DefaultDbContext(DbContextOptions<DefaultDbContext> options) : base(options)
     {
       ChangeTracker.LazyLoadingEnabled = false;
     }
 
-    public DbSet<SimpleWebAPIApp.Models.BlogPost> BlogPost { get; set; }
-    
+    public DbSet<SimpleWebAPIApp.Models.BlogPost> BlogPosts { get; set; }
+
+    public DbSet<SimpleWebAPIApp.Models.BlogUser> BlogUsers { get; set; }
+
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+      var user = modelBuilder.Entity<BlogUser>();
+      user.Property(u => u.CreationDate).HasDefaultValueSql("now()");
+    }
   }
-
-
 }

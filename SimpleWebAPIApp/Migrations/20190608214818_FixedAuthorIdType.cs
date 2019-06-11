@@ -4,33 +4,21 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace SimpleWebAPIApp.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class FixedAuthorIdType : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "ApiAuthUser",
+                name: "BlogUser",
                 columns: table => new
                 {
-                    Id = table.Column<string>(nullable: false),
-                    UserName = table.Column<string>(nullable: true),
-                    NormalizedUserName = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(nullable: true),
-                    NormalizedEmail = table.Column<string>(nullable: true),
-                    EmailConfirmed = table.Column<bool>(nullable: false),
-                    PasswordHash = table.Column<string>(nullable: true),
-                    SecurityStamp = table.Column<string>(nullable: true),
-                    ConcurrencyStamp = table.Column<string>(nullable: true),
-                    PhoneNumber = table.Column<string>(nullable: true),
-                    PhoneNumberConfirmed = table.Column<bool>(nullable: false),
-                    TwoFactorEnabled = table.Column<bool>(nullable: false),
-                    LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
-                    LockoutEnabled = table.Column<bool>(nullable: false),
-                    AccessFailedCount = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn),
+                    AuthUserPk = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ApiAuthUser", x => x.Id);
+                    table.PrimaryKey("PK_BlogUser", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -43,17 +31,17 @@ namespace SimpleWebAPIApp.Migrations
                     Subtitle = table.Column<string>(nullable: true),
                     Content = table.Column<byte[]>(type: "bytea", nullable: true),
                     Published = table.Column<DateTime>(nullable: false),
-                    AuthorId = table.Column<string>(nullable: true)
+                    AuthorId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_BlogPost", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_BlogPost_ApiAuthUser_AuthorId",
+                        name: "FK_BlogPost_BlogUser_AuthorId",
                         column: x => x.AuthorId,
-                        principalTable: "ApiAuthUser",
+                        principalTable: "BlogUser",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -68,7 +56,7 @@ namespace SimpleWebAPIApp.Migrations
                 name: "BlogPost");
 
             migrationBuilder.DropTable(
-                name: "ApiAuthUser");
+                name: "BlogUser");
         }
     }
 }

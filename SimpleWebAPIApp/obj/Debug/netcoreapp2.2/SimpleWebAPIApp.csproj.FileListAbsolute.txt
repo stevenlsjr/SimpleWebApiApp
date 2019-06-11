@@ -31,3 +31,4 @@ C:\Users\steve\source\repos\SimpleWebAPIApp\SimpleWebAPIApp\obj\Debug\netcoreapp
 C:\Users\steve\source\repos\SimpleWebAPIApp\SimpleWebAPIApp\obj\Debug\netcoreapp2.2\SimpleWebAPIApp.pdb
 C:\Users\steve\source\repos\SimpleWebAPIApp\SimpleWebAPIApp\obj\Debug\netcoreapp2.2\SimpleWebAPIApp.csproj.CopyComplete
 C:\Users\steve\source\repos\SimpleWebAPIApp\SimpleWebAPIApp\obj\Debug\netcoreapp2.2\SimpleWebAPIApp.csprojAssemblyReference.cache
+C:\Users\steve\source\repos\SimpleWebAPIApp\SimpleWebAPIApp\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\Account\Token.g.cshtml.cs
